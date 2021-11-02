@@ -13,10 +13,9 @@ const covariance = require("./covariance.js");
  * correlation([1, 2, 3, 4, 5], [1, 2, 3, 4, 5]); // => 1
  */
 function correlation(x, y, isSample = true) {
-  const sub = isSample ? 1 : 0;
-  const cov = covariance(x, y, sub),
-    xstd = stdev(x, sub),
-    ystd = stdev(y, sub);
+  const cov = covariance(x, y, isSample),
+    xstd = stdev(x, isSample),
+    ystd = stdev(y, isSample);
 
   return cov / xstd / ystd;
 }
