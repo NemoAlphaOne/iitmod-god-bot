@@ -1,1 +1,1 @@
-worker: node god.js
+worker: node omega.js

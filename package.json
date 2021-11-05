@@ -1,9 +1,9 @@
 {
-  "name": "iitmod-god-bot",
+  "name": "iitmod-omega-bot",
   "version": "0.1.0",
   "description": "The ultimate discord bot for the IITM OD community.",
-  "main": "god.js",
-  "repository": "git@github.com:NemoAlphaOne/iitmod-god-bot.git",
+  "main": "omega.js",
+  "repository": "git@github.com:NemoAlphaOne/iitmod-omega-bot.git",
   "author": "NemoAlphaOne <91358531+NemoAlphaOne@users.noreply.github.com>",
   "license": "MIT",
   "private": true,

@@ -1,3 +1,3 @@
-# iitmod-god-bot
+# IITMOD Omega Bot
 
-A discord bot for the IITM OD community.
+The ultimate discord bot for the IITM OD community.
