@@ -1,4 +1,4 @@
-const { InvalidDataError } = require("../utils/errors");
+const { DataSetSizeError } = require("../utils/errors");
 
 /**
  * The median of a data set is the middle most data point of the set if the
@@ -14,8 +14,7 @@ const { InvalidDataError } = require("../utils/errors");
  * median([1, 2, 3, 4]); // => 2.5
  */
 function median(data, isSorted = false) {
-  if (data.length < 2)
-    throw new InvalidDataError("Data set must contain at least 2 data points.");
+  if (data.length < 2) throw new DataSetSizeError(2);
 
   const sorted = isSorted ? data : [...data].sort((a, b) => a - b),
     len = data.length;

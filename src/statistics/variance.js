@@ -1,4 +1,4 @@
-const { InvalidDataError } = require("../utils/errors");
+const { DataSetSizeError } = require("../utils/errors");
 const mean = require("./mean");
 
 /**
@@ -14,13 +14,12 @@ const mean = require("./mean");
  * variance([1, 2, 3, 4, 5], false); // => 2 (variance of a population data set)
  */
 function variance(data, isSample = true) {
-  if (data.length < 2)
-    throw new InvalidDataError("Data set must contain at least 2 data points.");
-
-  const xbar = mean(data),
-    denom = data.length - (isSample ? 1 : 0);
-
-  return data.reduce((sse, x) => sse + Math.pow(x - xbar, 2), 0) / denom;
+  if (data.length < 2) throw new DataSetSizeError(2);
+  const xbar = mean(data);
+  return (
+    data.reduce((sse, x) => sse + Math.pow(x - xbar, 2), 0) /
+    (data.length - (isSample ? 1 : 0))
+  );
 }
 
 module.exports = variance;

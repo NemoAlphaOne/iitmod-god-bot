@@ -1,4 +1,4 @@
-class InvalidDataError extends Error {
+class DataSetError extends Error {
   /**
    * A custom error type for when the input data is invalid.
    * @param {string} err
@@ -9,4 +9,16 @@ class InvalidDataError extends Error {
   }
 }
 
-module.exports = { InvalidDataError };
+class DataSetSizeError extends DataSetError {
+  /**
+   * A custom error type for when the data set doesn't have required size
+   * @param {number} size
+   */
+  constructor(size) {
+    super(`Data set must contain at least ${size} data point(s).`);
+    this.name = "DataSetSizeError";
+    this.size = size;
+  }
+}
+
+module.exports = { DataSetError, DataSetSizeError };

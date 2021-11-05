@@ -1,4 +1,4 @@
-const { InvalidDataError } = require("../utils/errors");
+const { DataSetError, DataSetSizeError } = require("../utils/errors");
 const mean = require("./mean.js");
 
 /**
@@ -11,9 +11,8 @@ const mean = require("./mean.js");
  */
 function covariance(x, y, isSample = true) {
   if (x.length !== y.length)
-    throw new InvalidDataError("Data sets must have equal size.");
-  else if (x.length < 2)
-    throw new InvalidDataError("Data set must contain at least 2 data points.");
+    throw new DataSetError("Data sets must have equal size.");
+  else if (x.length < 2) throw new DataSetSizeError(2);
 
   const xbar = mean(x),
     ybar = mean(y),

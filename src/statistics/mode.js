@@ -1,4 +1,4 @@
-const { InvalidDataError } = require("../utils/errors");
+const { DataSetSizeError } = require("../utils/errors");
 
 /**
  * The mode of a data set is the data point that appears the most number of
@@ -14,8 +14,7 @@ const { InvalidDataError } = require("../utils/errors");
  * mode([1, 1, 1, 2]); // => [1]
  */
 function mode(data, isSorted = false) {
-  if (data.length < 2)
-    throw new InvalidDataError("Data set must contain at least 2 data points.");
+  if (data.length < 2) throw new DataSetSizeError(2);
 
   const sorted = isSorted ? data : [...data].sort((a, b) => a - b);
   let currentItem = sorted[0],
