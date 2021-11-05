@@ -5,7 +5,7 @@ class DataSetError extends Error {
    */
   constructor(err) {
     super(err);
-    this.name = "InvalidDataError";
+    this.name = "DataSetError";
   }
 }
 
